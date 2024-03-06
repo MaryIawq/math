@@ -9,6 +9,8 @@
 - Tailwind CSS
 - ESLint
 - Prettier
+- AutoAnimate
+- Vue Select
 
 ## Customize configuration
 
