@@ -32,9 +32,9 @@ const selected = ref(null);
         <h2 class='xl:text-2xl text-xl text-neutral-500 dark:text-neutral-400'>multifunctional calculator</h2>
       </div>
     </div>
-    <div class='lg:hidden'>
+    <div style="background: #d28b44; padding: 0.5rem; border-radius: 1rem" class='lg:hidden'>
       <vue-select
-        class='bg-orange-400 dark:text-neutral-600 font-bold transition dark:bg-neutral-600 shadow-md dark:hover:bg-amber-500 hover:bg-orange-300 min-w-48 max-w-96'
+        class=' min-w-48 max-w-96'
         multiple
         v-model="selected"
         placeholder="calculators"
@@ -58,5 +58,32 @@ const selected = ref(null);
 </template>
 
 <style scoped>
+>>> {
+  --vs-border-style: none;
+  --vs-border-radius: 10px;
 
+  --vs-dropdown-bg: #d28b44;
+  --vs-dropdown-color: #ffffff;
+  --vs-dropdown-option-color: #ffffff;
+
+  --vs-selected-bg: #d7c8be;
+  --vs-selected-color: #383838;
+
+  --vs-search-input-color: #e7dcd5;
+
+  --vs-dropdown-option--active-bg: #f8f8f8;
+  --vs-dropdown-option--active-color: #494949;
+
+  --vs-font-size: 1.5rem;
+  --vs-controls-size: 1.6;
+  --vs-controls--deselect-text-shadow: 0 0 0 #656565;
+
+  --vs-selected-border-color: #d7c8be;
+  --vs-selected-border-style: solid;
+  --vs-selected-border-width: 3px;
+  --vs-dropdown-box-shadow: 0px 3px 6px 0px #919191;
+
+  --vs-dropdown-option-padding: 10px 20px;
+
+}
 </style>
