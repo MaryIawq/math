@@ -1,14 +1,14 @@
 <script setup>
 import { RouterView } from 'vue-router'
+import HeaderComponent from '@/components/header-component.vue'
 
 </script>
 
 <template>
-  <header class='flex items-center gap-4'>
-    <img src="./assets/logo.png" alt="logo" />
-    <h1 class='text-stone-900 text-4xl font-bold'>Math()</h1>
-  </header>
-  <RouterView />
+  <div class='text-neutral-700 text-2xl'>
+    <header-component></header-component>
+    <RouterView />
+  </div>
 </template>
 
 <style scoped>
