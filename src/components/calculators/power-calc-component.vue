@@ -13,16 +13,20 @@ const calcPower = () => {
   if (power.value !== '' && powerNum.value !== '') {
     if (parseFloat(power.value) === 0) {
       powerResult.value = 1;
-    } else if (parseFloat(powerNum.value) === 0) {
-      powerResult.value = 0;
-    } else if (parseFloat(power.value) < 0) {
-      powerResult.value = 1 / Math.pow(parseFloat(powerNum.value), Math.abs(parseFloat(power.value)));
-    } else {
-      powerResult.value = Math.pow(parseFloat(power.value), parseFloat(powerNum.value));
+      return
     }
-  } else {
-    powerResult.value = '';
+    if (parseFloat(powerNum.value) === 0) {
+      powerResult.value = 0;
+      return
+    }
+    if (parseFloat(power.value) < 0) {
+      powerResult.value = 1 / Math.pow(parseFloat(powerNum.value), Math.abs(parseFloat(power.value)));
+      return
+    }
+    powerResult.value = Math.pow(parseFloat(powerNum.value), parseFloat(power.value));
+    return
   }
+  powerResult.value = '';
 }
 
 
@@ -40,9 +44,9 @@ const calcRoot = () => {
 </script>
 
 <template>
-  <div class='items-center flex flex-col text-center justify-center max-w-fit shadow-2xl rounded-b-xl'>
+  <div class='items-center flex flex-col text-center justify-center dark:bg-neutral-600 bg-neutral-300 rounded-xl pb-7 max-w-fit rounded-b-xl'>
     <h2 class='bg-orange-400 w-full py-2 dark:bg-teal-600 rounded-t-xl'>power/root</h2>
-    <div class='flex flex-col items-center gap-4 sm:py-8 py-4 w-full bg-neutral-300 dark:bg-neutral-800'>
+    <div class='flex flex-col items-center gap-4 sm:py-8 py-4 w-full bg-neutral-200 shadow-lg dark:bg-neutral-800'>
       <div class='flex flex-col gap-1 items-center justify-center'>
         <input type='number'
                v-model='power'
@@ -56,9 +60,9 @@ const calcRoot = () => {
         class='bg-orange-400 dark:bg-neutral-600 w-3/12 p-2 rounded-lg'>calc
       </button>
     </div>
-    <p class='bg-teal-400 dark:bg-teal-600 rounded-lg sm:my-8 my-4 sm:p-2 p-1 sm:px-12 px-7'>{{ powerResult }}</p>
-
-    <div class='flex flex-col items-center gap-6 py-8 w-full bg-neutral-300 dark:bg-neutral-800'>
+    <p v-if='powerResult' class='bg-teal-400 dark:bg-teal-600 rounded-lg my-4 sm:p-2 p-1 sm:px-12 px-7'>{{ powerResult }}</p>
+<br>
+    <div class='flex flex-col items-center gap-6 py-8 w-full bg-neutral-200 shadow-lg dark:bg-neutral-800'>
 
       <div class='flex gap-10 relative pt-8 items-center justify-center'>
         <img class='sm:w-full w-5/6' src='/src/assets/root.png' alt='root'>
@@ -78,7 +82,7 @@ const calcRoot = () => {
         class='bg-orange-400 dark:bg-neutral-600 w-1/6 p-2 rounded-lg'>calc
       </button>
     </div>
-    <p class='bg-teal-400 dark:bg-teal-600 rounded-lg sm:my-8 my-4 sm:p-2 p-1 sm:px-12 px-7'>{{ rootResult }}</p>
+    <p v-if='rootResult' class='bg-teal-400 dark:bg-teal-600 rounded-lg my-4 sm:p-2 p-1 sm:px-12 px-7'>{{ rootResult }}</p>
   </div>
 </template>
 
@@ -89,13 +93,13 @@ const calcRoot = () => {
   right: 50px;
 }
   .rootInp {
-    top: 10px;
-    left: 35px;
+    top: 7px;
+    left: 25px;
   }
 }
 @media (max-width: 370px) {
   .rootNumInp {
-    top: 40px;
+    top: 45px;
     right: 45px;
   }
   .rootInp {

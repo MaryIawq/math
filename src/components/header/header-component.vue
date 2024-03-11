@@ -79,7 +79,7 @@ watch(selected, (newValue, oldValue) => {
         <router-link to='/'>
           <img class='transition min-w-fit lg:mr-6 mr-1 brightness-90 min-w-26 min-h-26 hover:rotate-12'
                alt='math()logo'
-               :src="isDarkMode ? 'logo-dark.png' : 'logo-light.png'" />
+               :src="isDarkMode ? 'logo-dark.svg' : 'logo-light.svg'" />
         </router-link>
         <div class='flex flex-col gap-1 justify-center lg:ml-3 sm:ml-6 lg:mr-5'>
           <h1 class='xl:text-5xl md:text-4xl text-3xl font-bold'>Math()</h1>

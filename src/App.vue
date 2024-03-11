@@ -36,7 +36,7 @@ const handleToggleMenuOption = (optionName, isSelecting) => {
 </script>
 
 <template>
-  <div class='text-neutral-600 dark:text-neutral-300 dark:bg-neutral-700 md:text-2xl text-xl min-h-lvh'>
+  <div class='text-neutral-700 dark:text-neutral-300 dark:bg-neutral-700 md:text-2xl text-xl min-h-lvh'>
     <header-component
       @toggleMenuOption="handleToggleMenuOption"
       :change-theme='changeTheme'
