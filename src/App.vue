@@ -5,7 +5,6 @@ import { ref, watch } from 'vue'
 const isDarkMode = ref(false);
 const selectedOptions = ref([])
 const rootCalcVisible = ref(false)
-
 const changeTheme = () => {
   isDarkMode.value = !isDarkMode.value;
   document.documentElement.classList.toggle('dark');

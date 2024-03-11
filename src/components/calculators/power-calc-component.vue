@@ -12,17 +12,19 @@ const rootResult = ref('')
 const calcPower = () => {
   if (power.value !== '' && powerNum.value !== '') {
     if (parseFloat(power.value) === 0) {
-      powerResult.value = 1
+      powerResult.value = 1;
+    } else if (parseFloat(powerNum.value) === 0) {
+      powerResult.value = 0;
+    } else if (parseFloat(power.value) < 0) {
+      powerResult.value = 1 / Math.pow(parseFloat(powerNum.value), Math.abs(parseFloat(power.value)));
     } else {
-      powerResult.value = Math.pow(parseFloat(power.value), parseFloat(powerNum.value))
-    }
-    if (parseFloat(powerNum.value) === 0) {
-      powerResult.value = 0
+      powerResult.value = Math.pow(parseFloat(power.value), parseFloat(powerNum.value));
     }
   } else {
-    powerResult.value = ''
+    powerResult.value = '';
   }
 }
+
 
 const calcRoot = () => {
   if (root.value !== '' && rootNum.value !== '') {
