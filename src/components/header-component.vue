@@ -1,11 +1,20 @@
 <script setup>
-import { h, ref } from 'vue'
+import { h, ref, watch, defineEmits } from 'vue'
 import VueSelect from 'vue-select'
 import 'vue-select/dist/vue-select.css'
 import NavBtnElement from '@/components/elements/nav-btn-element.vue'
 import SunIcon from '@/components/icons/sun-icon.vue'
 import MoonIcon from '@/components/icons/moon-icon.vue'
-
+defineProps({
+  changeTheme: Function,
+  isDarkMode: Boolean,
+  showRootCalc: Function,
+  rootCalcVisible: Boolean
+})
+const selected = ref([])
+const emit = defineEmits([
+  'selectedOptions'
+])
 VueSelect.props.components.default = () => ({
   Deselect: {
     render: () => h('span', '❌')
@@ -14,15 +23,11 @@ VueSelect.props.components.default = () => ({
     render: () => h('span', '🔽')
   }
 })
-defineProps({
-  changeTheme: Function,
-  isDarkMode: Boolean,
-  showRootCalc: Function,
-  rootCalcVisible: Boolean
+
+
+watch(selected, (selectedOptions) => {
+  emit('selectedOptions', selectedOptions)
 })
-
-const selected = ref(null)
-
 </script>
 
 <template>
@@ -30,11 +35,11 @@ const selected = ref(null)
     <div class='flex flex-col md:flex-row'>
       <div class='flex items-center md:m-0 mb-5'>
         <router-link to='/'>
-          <img class='transition lg:mr-6 mr-1 brightness-90 min-w-26 min-h-26 hover:rotate-12'
+          <img class='transition min-w-fit lg:mr-6 mr-1 brightness-90 min-w-26 min-h-26 hover:rotate-12'
                alt='math()logo'
                :src="isDarkMode ? '/src/assets/logo-dark.png' : '/src/assets/logo-light.png'" />
         </router-link>
-        <div class='flex flex-col gap-1 justify-center ml-2 mr-5'>
+        <div class='flex flex-col gap-1 justify-center lg:ml-3 sm:ml-6 lg:mr-5'>
           <h1 class='xl:text-5xl md:text-4xl text-3xl font-bold'>Math()</h1>
           <h2 class='xl:text-2xl md:text-xl hidden sm:block text-lg text-neutral-500 dark:text-neutral-400'>multifunctional calculator</h2>
         </div>
@@ -49,7 +54,7 @@ const selected = ref(null)
       </div>
     </div>
     <div class='md:block hidden'>
-      <div class='flex gap-7 mx-4'>
+      <div class='flex xl:gap-11 lg:gap-6 gap-3 xl:mx-6 lg:mx-2 mx-0'>
         <nav-btn-element :text='"base"'></nav-btn-element>
         <nav-btn-element @click='showRootCalc' :text='"powers/roots"'></nav-btn-element>
         <nav-btn-element :text='"logarithms"'></nav-btn-element>

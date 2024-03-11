@@ -2,12 +2,14 @@
 import PowerCalcComponent from '@/components/calculators/power-calc-component.vue'
 defineProps({
   showRootCalc: Function,
-  rootCalcVisible: Boolean
+  rootCalcVisible: Boolean,
 })
+
+
 </script>
 
 <template>
-    <div class='flex justify-around mt-8'>
+    <div class='flex justify-around sm:mt-8 mt-2 sm:mx-0 mx-2'>
       <transition>
         <power-calc-component v-if='rootCalcVisible'></power-calc-component>
       </transition>
@@ -16,13 +18,5 @@ defineProps({
 
 </template>
 <style scoped>
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
-}
 
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
 </style>
