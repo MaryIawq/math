@@ -7,6 +7,7 @@ import App from './App.vue'
 import VueSelect from 'vue-select'
 import 'vue-select/dist/vue-select.css'
 import router from './router'
+import './registerServiceWorker'
 
 const app = createApp(App).use(autoAnimatePlugin).component('VueSelect', VueSelect)
 

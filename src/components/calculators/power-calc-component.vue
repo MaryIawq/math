@@ -12,21 +12,21 @@ const rootResult = ref('')
 const calcPower = () => {
   if (power.value !== '' && powerNum.value !== '') {
     if (parseFloat(power.value) === 0) {
-      powerResult.value = 1;
+      powerResult.value = 1
       return
     }
     if (parseFloat(powerNum.value) === 0) {
-      powerResult.value = 0;
+      powerResult.value = 0
       return
     }
     if (parseFloat(power.value) < 0) {
-      powerResult.value = 1 / Math.pow(parseFloat(powerNum.value), Math.abs(parseFloat(power.value)));
+      powerResult.value = 1 / Math.pow(parseFloat(powerNum.value), Math.abs(parseFloat(power.value)))
       return
     }
-    powerResult.value = Math.pow(parseFloat(powerNum.value), parseFloat(power.value));
+    powerResult.value = Math.pow(parseFloat(powerNum.value), parseFloat(power.value))
     return
   }
-  powerResult.value = '';
+  powerResult.value = ''
 }
 
 
@@ -44,67 +44,65 @@ const calcRoot = () => {
 </script>
 
 <template>
-  <div class='items-center flex flex-col text-center justify-center dark:bg-neutral-600 bg-neutral-300 rounded-xl pb-7 max-w-fit rounded-b-xl'>
-    <h2 class='bg-orange-400 w-full py-2 dark:bg-teal-600 rounded-t-xl'>power/root</h2>
-    <div class='flex flex-col items-center gap-4 sm:py-8 py-4 w-full bg-neutral-200 shadow-lg dark:bg-neutral-800'>
+  <div
+    class='items-center flex flex-col text-center justify-center dark:bg-neutral-600 bg-neutral-100 rounded-xl pb-7  2xl:w-4/12 xl:w-5/12 lg:w-6/12 md:w-8/12 w-full rounded-b-xl'>
+    <h2 class='bg-orange-400 font-bold w-full py-2 dark:bg-teal-600 rounded-t-xl'>power/root</h2>
+    <div
+      class='flex flex-col items-center rounded-b-lg gap-4 sm:py-8 py-4 w-full bg-white shadow-lg dark:bg-neutral-800'>
       <div class='flex flex-col gap-1 items-center justify-center'>
         <input type='number'
                v-model='power'
-               class='dark:bg-amber-700 font-bold rounded-lg w-2/12 p-2 self-end mr-4'>
+               class='dark:bg-amber-700 bg-teal-400 font-bold rounded-lg w-2/12 p-2 self-end mr-4'>
         <input type='number'
                v-model='powerNum'
-               class='dark:bg-amber-700 font-bold rounded-lg w-3/6 p-6'>
+               class='dark:bg-amber-700 bg-teal-400 font-bold rounded-lg w-3/6 p-6'>
       </div>
       <button
         @click='calcPower'
         class='bg-orange-400 dark:bg-neutral-600 w-3/12 p-2 rounded-lg'>calc
       </button>
     </div>
-    <p v-if='powerResult' class='bg-teal-400 dark:bg-teal-600 rounded-lg my-4 sm:p-2 p-1 sm:px-12 px-7'>{{ powerResult }}</p>
-<br>
-    <div class='flex flex-col items-center gap-6 py-8 w-full bg-neutral-200 shadow-lg dark:bg-neutral-800'>
+    <transition>
+      <p v-if='powerResult' class='bg-teal-400 dark:bg-teal-600 rounded-lg my-4 sm:p-2 p-1 sm:px-12 px-7'>{{ powerResult
+        }}</p>
+    </transition>
 
-      <div class='flex gap-10 relative pt-8 items-center justify-center'>
-        <img class='sm:w-full w-5/6' src='/src/assets/root.png' alt='root'>
+    <div class='flex flex-col items-center rounded-lg gap-6 py-8 mt-6 w-full bg-white shadow-lg dark:bg-neutral-800'>
+      <div class='relative px-2 flex flex-col gap-1 items-center justify-center'>
+        <img class='absolute top-7 px-1' src='/src/assets/root.svg' alt='root'>
         <input
           type='number'
           v-model='root'
-          class='rootInp dark:bg-amber-700 font-bold absolute rounded-lg w-1/6 sm:p-4 p-2 sm:top-0 sm:left-3 left-10 top-4'>
+          class='inpRoot z-10 dark:bg-amber-700 bg-teal-400 font-bold rounded-lg w-2/12 p-2 self-start'>
         <input
           type='number'
           v-model='rootNum'
-          class='rootNumInp dark:bg-amber-700 font-bold absolute rounded-lg sm:w-3/6 w-5/12 sm:p-8 p-5 bottom-4 sm:right-8 right-16'>
-
+          class='inpNum z-10 dark:bg-amber-700 bg-teal-400 font-bold rounded-lg self-end mr-4 w-3/6 p-5'>
       </div>
-
       <button
         @click='calcRoot'
         class='bg-orange-400 dark:bg-neutral-600 w-1/6 p-2 rounded-lg'>calc
       </button>
     </div>
-    <p v-if='rootResult' class='bg-teal-400 dark:bg-teal-600 rounded-lg my-4 sm:p-2 p-1 sm:px-12 px-7'>{{ rootResult }}</p>
+    <transition>
+      <p v-if='rootResult' class='bg-teal-400 dark:bg-teal-600 rounded-lg my-4 sm:p-2 p-1 sm:px-12 px-7'>{{ rootResult
+        }}</p>
+    </transition>
   </div>
 </template>
 
 <style scoped>
-@media (max-width: 460px) {
-.rootNumInp {
-  bottom: 0;
-  right: 50px;
-}
-  .rootInp {
-    top: 7px;
-    left: 25px;
+@media (max-width: 430px) {
+  .inpNum {
+    height: 50px;
   }
-}
-@media (max-width: 370px) {
-  .rootNumInp {
-    top: 45px;
-    right: 45px;
+  .inpRoot {
+    margin-top: 10px;
+    height: 40px
   }
-  .rootInp {
-    top: 6px;
-    left: 28px;
+  img {
+    top: 38px;
+    padding-right: 20px;
   }
 }
 </style>

@@ -77,13 +77,13 @@ watch(selected, (newValue, oldValue) => {
     <div class='flex flex-col md:flex-row'>
       <div class='flex items-center md:m-0 mb-5'>
         <router-link to='/'>
-          <img class='transition min-w-fit lg:mr-6 mr-1 brightness-90 min-w-26 min-h-26 hover:rotate-12'
+          <img class='transition  sm:w-24 w-16 lg:mr-6 mr-1 brightness-90 min-w-26 min-h-26 hover:rotate-12'
                alt='math()logo'
                :src="isDarkMode ? 'logo-dark.svg' : 'logo-light.svg'" />
         </router-link>
-        <div class='flex flex-col gap-1 justify-center lg:ml-3 sm:ml-6 lg:mr-5'>
+        <div class='flex flex-col sm:w-full w-24 sm:gap-1 justify-center lg:ml-3 sm:ml-6 lg:mr-5'>
           <h1 class='xl:text-5xl md:text-4xl text-3xl font-bold'>Math()</h1>
-          <h2 class='xl:text-2xl md:text-xl hidden sm:block text-lg text-neutral-500 dark:text-neutral-400'>multifunctional calculator</h2>
+          <h2 class='xl:text-2xl md:text-xl text-lg font-thin text-neutral-500 dark:text-neutral-400'>multifunctional calculator</h2>
         </div>
       </div>
       <div style='background: #f58849; padding: 0.4rem; border-radius: 1rem' class='md:hidden'>
@@ -108,8 +108,8 @@ watch(selected, (newValue, oldValue) => {
     </div>
 
     <div @click='changeTheme'
-         class='relative md:mb-0 mb-20 shadow-lg lg:px-12 sm:px-8 px-6 lg:py-6 sm:py-4 py-3 ml-5 mr-1 border-2 border-orange-300 dark:border-neutral-600 bg-orange-300 dark:bg-neutral-500 rounded-full hover:cursor-pointer'>
-      <div v-auto-animate class='absolute flex items-center justify-center lg:p-0 p-1 top-0 left-0 lg:dark:left-12 md:dark:left-8 sm:dark:left-8 dark:left-6 bg-white lg:h-12 lg:w-12 sm:h-8 sm:w-8 w-6 h-6 rounded-full transition hover:scale-105'>
+         class='relative md:mb-0 mb-20 shadow-lg lg:px-10 px-8 lg:py-5 py-4 ml-4 mr-1 border-2 border-neutral-300 dark:border-neutral-600 bg-neutral-200 dark:bg-neutral-500 rounded-full hover:cursor-pointer'>
+      <div v-auto-animate class='absolute flex items-center justify-center lg:p-0 p-1 top-0 left-0 lg:dark:left-10 dark:left-8 bg-white lg:h-10 lg:w-10 h-8 w-8 rounded-full transition hover:scale-105'>
         <moon-icon v-if='isDarkMode'></moon-icon>
         <sun-icon v-else></sun-icon>
       </div>
