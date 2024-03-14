@@ -2,6 +2,7 @@
 import { ref, provide } from 'vue'
 import { RouterView } from 'vue-router'
 import HeaderComponent from '@/components/header/header-component.vue'
+import FooterComponent from '@/components/footer/footer-component.vue'
 
 const isDarkMode = ref(false);
 const changeTheme = () => {
@@ -37,7 +38,7 @@ provide('isDarkMode', isDarkMode)
 </script>
 
 <template>
-  <div class='text-neutral-700 dark:text-neutral-300 bg-neutral-200 dark:bg-neutral-700 md:text-2xl text-xl min-h-lvh'>
+  <div class='flex flex-col justify-between text-neutral-700 dark:text-neutral-300 bg-neutral-200 dark:bg-neutral-700 md:text-2xl text-xl min-h-lvh'>
     <header-component
       @toggleMenuOption="handleToggleMenuOption"
       :change-theme='changeTheme'
@@ -49,6 +50,7 @@ provide('isDarkMode', isDarkMode)
     <RouterView
       :menu-options='menuOptions'
     />
+    <footer-component></footer-component>
   </div>
 </template>
 

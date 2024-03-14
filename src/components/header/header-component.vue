@@ -1,5 +1,5 @@
 <script setup>
-import { h, ref, watch, defineEmits, computed } from 'vue'
+import { h, ref, watch, computed } from 'vue'
 import VueSelect from 'vue-select'
 import NavBtnElement from '@/components/header/ui/nav-btn-element.vue'
 import SunIcon from '@/components/header/ui/icons/sun-icon.vue'
