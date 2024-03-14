@@ -4,7 +4,6 @@ import { ref } from 'vue'
 import EmailIcon from '@/components/footer/ui/icons/email-icon.vue'
 import GithubIcon from '@/components/footer/ui/icons/github-icon.vue'
 import TelegramIcon from '@/components/footer/ui/icons/telegram-icon.vue'
-import CopyIcon from '@/components/footer/ui/icons/copy-icon.vue'
 
 const tgLink = '@marisvrja'
 const copiedText = ref(false)
