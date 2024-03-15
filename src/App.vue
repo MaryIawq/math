@@ -1,5 +1,5 @@
 <script setup>
-import { ref, provide } from 'vue'
+import { ref, provide, onMounted } from 'vue'
 import { RouterView } from 'vue-router'
 import HeaderComponent from '@/components/header/header-component.vue'
 import FooterComponent from '@/components/footer/footer-component.vue'
@@ -8,8 +8,17 @@ const isDarkMode = ref(false);
 const changeTheme = () => {
   isDarkMode.value = !isDarkMode.value;
   document.documentElement.classList.toggle('dark');
+  localStorage.setItem('isDarkMode', isDarkMode.value);
 }
-
+onMounted(() => {
+  const savedTheme = localStorage.getItem('isDarkMode');
+  if (savedTheme !== null) {
+    isDarkMode.value = savedTheme === 'true'; // Преобразуем строку в булево значение
+    if (isDarkMode.value) {
+      document.documentElement.classList.add('dark');
+    }
+  }
+});
 const menuOptions = ref({
   base:       {name: 'base', isVisible: false},
   powersRoot: {name: 'powers/root', isVisible: false},
