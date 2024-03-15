@@ -59,7 +59,7 @@ const calcRoot = () => {
       </div>
       <button
         @click='calcPower'
-        class='bg-orange-400 dark:bg-neutral-600 w-3/12 p-2 rounded-lg'>calc
+        class='bg-orange-400 dark:bg-neutral-600 w-1/6 p-2 rounded-lg'>calc
       </button>
     </div>
     <transition>
