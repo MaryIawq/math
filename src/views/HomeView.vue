@@ -11,7 +11,7 @@ const props = defineProps({
 
 <template>
   <div class='relative'>
-    <div class='flex justify-around items-center px-6 gap-6 xl:flex-row flex-col sm:mt-8 mt-2 sm:mx-0 mx-1'>
+    <div class='flex justify-around items-center px-6 gap-6 2xl:flex-row flex-col sm:mt-8 mt-2 sm:mx-0 mx-1'>
       <transition>
         <base-calc-component v-if='props.menuOptions.base.isVisible'></base-calc-component>
       </transition>

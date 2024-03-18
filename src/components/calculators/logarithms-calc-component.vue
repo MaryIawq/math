@@ -30,7 +30,7 @@ const isDarkMode = inject('isDarkMode')
 
 <template>
   <div
-    class='items-center flex flex-col text-center justify-center dark:bg-neutral-600 bg-neutral-100 rounded-xl pb-7 2xl:w-4/12 xl:w-5/12 lg:w-6/12 md:w-8/12 w-full rounded-b-xl'>
+    class='items-center flex flex-col text-center justify-center dark:bg-neutral-600 bg-neutral-100 rounded-xl pb-7 2xl:w-3/12 xl:w-4/12 lg:w-6/12 md:w-8/12 w-full rounded-b-xl'>
     <h2 class='bg-orange-400 font-bold w-full py-2 dark:bg-teal-600 rounded-t-xl'>logarithms</h2>
     <div
       class='flex flex-col items-center rounded-b-lg gap-12 sm:py-8 py-4 w-full bg-white shadow-lg dark:bg-neutral-800'>
